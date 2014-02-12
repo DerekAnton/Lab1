@@ -1,4 +1,5 @@
 import java.io.*;
+import java.lang.*;
 
 public class shellMain
 {
@@ -14,6 +15,18 @@ public class shellMain
 				continue;
 			else if(commandLine.equals("quit"))
 				break;
+			else
+			{
+				try
+				{
+				(Runtime.getRuntime().exec(commandLine)).waitFor();
+				}
+				catch(InterruptedException e)
+				{
+					System.out.println("An interrupt exception was caught");
+				}
+				
+			}
 		}
 	}
 }
